@@ -1,0 +1,215 @@
+{
+  "id": "kickoff-dispatch",
+  "name": "Hackathon kickoff dispatch",
+  "synthetic": true,
+  "planningTime": "2026-10-15T12:00:00+05:30",
+  "horizonHours": 12,
+  "currency": "INR",
+  "maxDiscount": 0.2,
+  "riskHours": 12,
+  "disposalPerKg": 4,
+  "packagingPerKg": 1,
+  "storagePerKg": null,
+  "platformRate": null,
+  "taxRate": null,
+  "applyDiscounts": false,
+  "batches": [
+    {
+      "id": "B-01",
+      "produce": "Tomato",
+      "grade": "A",
+      "quantity": 140,
+      "unit": "kg",
+      "received": "2026-10-15T00:00:00+05:30",
+      "expiry": "2026-10-15T22:00:00+05:30",
+      "acquisition": 18,
+      "source": "Synthetic Nashik grower lot"
+    },
+    {
+      "id": "B-02",
+      "produce": "Mango",
+      "grade": "A",
+      "quantity": 80,
+      "unit": "kg",
+      "received": "2026-10-14T12:00:00+05:30",
+      "expiry": "2026-10-16T06:00:00+05:30",
+      "acquisition": 42,
+      "source": "Synthetic Nashik grower lot"
+    },
+    {
+      "id": "B-03",
+      "produce": "Spinach",
+      "grade": "A",
+      "quantity": 50,
+      "unit": "kg",
+      "received": "2026-10-15T04:00:00+05:30",
+      "expiry": "2026-10-15T17:00:00+05:30",
+      "acquisition": 22,
+      "source": "Synthetic Nashik grower lot"
+    },
+    {
+      "id": "B-04",
+      "produce": "Tomato",
+      "grade": "A",
+      "quantity": 60,
+      "unit": "kg",
+      "received": "2026-10-15T06:00:00+05:30",
+      "expiry": "2026-10-16T10:00:00+05:30",
+      "acquisition": 18,
+      "source": "Synthetic Nashik grower lot"
+    },
+    {
+      "id": "B-05",
+      "produce": "Banana",
+      "grade": "A",
+      "quantity": 70,
+      "unit": "kg",
+      "received": "2026-10-14T20:00:00+05:30",
+      "expiry": "2026-10-15T20:00:00+05:30",
+      "acquisition": 20,
+      "source": "Synthetic Nashik grower lot"
+    }
+  ],
+  "destinations": [
+    {
+      "id": "D-1",
+      "name": "Campus market",
+      "opens": "2026-10-15T12:00:00+05:30",
+      "closes": "2026-10-15T20:00:00+05:30",
+      "demands": [
+        {
+          "produce": "Tomato",
+          "quantity": 70,
+          "maximum": 80,
+          "price": 30,
+          "minimumPrice": 22.5,
+          "priority": 1
+        },
+        {
+          "produce": "Spinach",
+          "quantity": 35,
+          "maximum": 50,
+          "price": 38,
+          "minimumPrice": 28.5,
+          "priority": 3
+        },
+        {
+          "produce": "Banana",
+          "quantity": 30,
+          "maximum": 30,
+          "price": 32,
+          "minimumPrice": 24.0,
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "D-2",
+      "name": "Central mandi",
+      "opens": "2026-10-15T12:00:00+05:30",
+      "closes": "2026-10-15T20:00:00+05:30",
+      "demands": [
+        {
+          "produce": "Tomato",
+          "quantity": 60,
+          "maximum": 60,
+          "price": 34,
+          "minimumPrice": 25.5,
+          "priority": 1
+        },
+        {
+          "produce": "Mango",
+          "quantity": 60,
+          "maximum": 60,
+          "price": 68,
+          "minimumPrice": 51.0,
+          "priority": 1
+        },
+        {
+          "produce": "Banana",
+          "quantity": 30,
+          "maximum": 30,
+          "price": 36,
+          "minimumPrice": 27.0,
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "D-3",
+      "name": "Riverside grocer",
+      "opens": "2026-10-15T12:00:00+05:30",
+      "closes": "2026-10-15T20:00:00+05:30",
+      "demands": [
+        {
+          "produce": "Mango",
+          "quantity": 50,
+          "maximum": 50,
+          "price": 73,
+          "minimumPrice": 54.75,
+          "priority": 1
+        },
+        {
+          "produce": "Spinach",
+          "quantity": 25,
+          "maximum": 25,
+          "price": 40,
+          "minimumPrice": 30.0,
+          "priority": 3
+        },
+        {
+          "produce": "Banana",
+          "quantity": 25,
+          "maximum": 25,
+          "price": 39,
+          "minimumPrice": 29.25,
+          "priority": 1
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "R-01",
+      "origin": "FreshRoute hub",
+      "destination": "D-1",
+      "travel": 2,
+      "delay": 0,
+      "handling": 1,
+      "capacity": 160,
+      "unit": "kg",
+      "fixedCost": 500,
+      "perKg": 1,
+      "handlingCost": 1,
+      "eligible": []
+    },
+    {
+      "id": "R-02",
+      "origin": "FreshRoute hub",
+      "destination": "D-2",
+      "travel": 4,
+      "delay": 0,
+      "handling": 1,
+      "capacity": 130,
+      "unit": "kg",
+      "fixedCost": 650,
+      "perKg": 1.5,
+      "handlingCost": 1,
+      "eligible": []
+    },
+    {
+      "id": "R-03",
+      "origin": "FreshRoute hub",
+      "destination": "D-3",
+      "travel": 7,
+      "delay": 0,
+      "handling": 1,
+      "capacity": 90,
+      "unit": "kg",
+      "fixedCost": 800,
+      "perKg": 2,
+      "handlingCost": 1,
+      "eligible": []
+    }
+  ]
+}

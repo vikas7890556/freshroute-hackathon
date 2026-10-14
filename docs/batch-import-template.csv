@@ -1,0 +1,2 @@
+batch_id,produce,quantity_kg,acquisition_cost,received_at,expiry,shelf_life_hours,grade,source
+SYNTHETIC-EXAMPLE,Tomato,10,18,2026-10-15T12:00,,10,A,Synthetic example — replace before use
