@@ -1,6 +1,10 @@
 from datetime import timedelta
-from .models import Metrics, Plan
-from .feasibility import audit
+try:
+    from .models import Metrics, Plan
+    from .feasibility import audit
+except ImportError:  # Vercel's service root exposes backend modules top-level.
+    from models import Metrics, Plan
+    from feasibility import audit
 
 def evaluate(s, allocations, strategy):
     sent={}; used=set(); sold={}; base_sold={}; markdown_allocated=0.0

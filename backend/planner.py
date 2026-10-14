@@ -1,8 +1,13 @@
 """Bounded deterministic candidate search, not an optimality certificate."""
 from datetime import timedelta
-from .models import Allocation, Result
-from .feasibility import reasons, times, markdown
-from .metrics import evaluate
+try:
+    from .models import Allocation, Result
+    from .feasibility import reasons, times, markdown
+    from .metrics import evaluate
+except ImportError:  # Vercel's service root exposes backend modules top-level.
+    from models import Allocation, Result
+    from feasibility import reasons, times, markdown
+    from metrics import evaluate
 
 def edges(s):
     feasible=[]; rejected=[]

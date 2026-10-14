@@ -3,9 +3,14 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from .models import PlanRequest, Result, Scenario
-from .planner import solve
-from .scenarios import compare, decisions
+if __package__:
+    from .models import PlanRequest, Result, Scenario
+    from .planner import solve
+    from .scenarios import compare, decisions
+else:  # Vercel loads backend/main.py as the top-level module ``main``.
+    from models import PlanRequest, Result, Scenario
+    from planner import solve
+    from scenarios import compare, decisions
 
 app=FastAPI(title='FreshRoute',version='2.0.0')
 app.add_middleware(CORSMiddleware,allow_origins=os.getenv('FRESHROUTE_ORIGINS','http://127.0.0.1:5173,http://localhost:5173').split(','),allow_methods=['GET','POST'],allow_headers=['Content-Type'])

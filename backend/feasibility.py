@@ -1,5 +1,8 @@
 from datetime import timedelta
-from .models import Scenario, Batch, Route, Destination
+try:
+    from .models import Scenario, Batch, Route, Destination
+except ImportError:  # Vercel's service root exposes backend modules top-level.
+    from models import Scenario, Batch, Route, Destination
 
 EPS = 1e-6
 def times(s: Scenario, b: Batch, r: Route):

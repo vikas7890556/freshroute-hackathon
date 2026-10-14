@@ -1,5 +1,9 @@
-from .planner import solve, rank_key
-from .metrics import evaluate
+try:
+    from .planner import solve, rank_key
+    from .metrics import evaluate
+except ImportError:  # Vercel's service root exposes backend modules top-level.
+    from planner import solve, rank_key
+    from metrics import evaluate
 
 def compare(s, objective):
     cases=[]
