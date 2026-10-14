@@ -1,6 +1,29 @@
 # FreshRoute · Freshness Control Tower
 
-Working local application for Wild Bugs PS 03: React, TypeScript, Vite, Tailwind, FastAPI and deterministic Python planning. Bundled synthetic data. No API keys, database or Docker. Dependency installation needs internet once; normal operation does not.
+**Live demo:** [freshroute-dispatch.vercel.app](https://freshroute-dispatch.vercel.app) · [API health check](https://freshroute-dispatch.vercel.app/api/health)
+
+FreshRoute is a decision-support demo for Wild Bugs PS 03: perishable produce distribution. It turns inventory, destination demand, shelf life and transport limits into an explainable dispatch plan, financial estimate and scenario comparison.
+
+**Stack:** React, TypeScript, Vite and Tailwind for the interface; FastAPI and a deterministic Python planner for the API. The bundled sample data is synthetic. No API keys, database or Docker are required. Dependency installation needs internet once; normal operation does not.
+
+> **Demo data notice:** All bundled scenario values are synthetic and intended for demonstration. Financial and spoilage outputs are estimates under the assumptions below, not operational or accounting advice.
+
+## What the demo includes
+
+- Dispatch recommendations constrained by stock, demand, shelf life, receiving windows, route capacity, travel, departure delay and handling time.
+- A financial estimate that itemizes modeled revenue and costs, plus fulfillment, spoilage and remaining usable inventory.
+- FIFO and earliest-expiry baselines, at-risk batch review and conditional markdown suggestions.
+- Decision comparisons, disruption scenarios, explainable constraint checks, and JSON/CSV import and export.
+
+## Start here
+
+- [Run locally](#setup-from-a-laptop-with-only-vs-code)
+- [Deployment and live URL](docs/DEPLOYMENT.md)
+- [Four-minute demo script](docs/DEMO.md)
+- [Verification notes](docs/VERIFICATION.md)
+- [Data, method and assumptions](#data-method-and-assumptions)
+
+The GitHub `main` branch is connected to Vercel. Changes committed to `main` trigger a new deployment; the live alias is managed in Vercel and does not need to be embedded in application code.
 
 ## Setup from a laptop with only VS Code
 
@@ -92,9 +115,9 @@ Unsold stock expiring on or before horizon end is estimated spoilage; stock expi
 
 ## Public demo deployment
 
-The project includes a Vercel setup for the existing FastAPI app and React UI. Follow [deployment](docs/DEPLOYMENT.md). Vercel Hobby is free within its usage limits and does not require Google Cloud billing. Functions can cold-start after inactivity; this project sets the function region to Mumbai and allows up to 60 seconds per call.
+The public demo runs on Vercel with the Vite UI and FastAPI planner as two services. The `/api/*` route is sent to FastAPI; other paths are served by the UI. Open [freshroute-dispatch.vercel.app](https://freshroute-dispatch.vercel.app), or check [API health](https://freshroute-dispatch.vercel.app/api/health). See [deployment notes](docs/DEPLOYMENT.md) for the setup and smoke checks. Vercel Hobby is subject to its current usage limits; check the [Hobby plan details](https://vercel.com/docs/plans/hobby). The app has no database or accounts, so edits are not shared or persisted after reload unless exported.
 
-Older documents are labeled historical. The original parent ZIP is untouched; use the v2 source archive for this implementation. The old static Site manifest is not a deployment of this Python-backed version.
+Older documents are labeled historical. The original parent ZIP is untouched; use this source tree for the current implementation. The old static Site manifest is not a deployment of this Python-backed version.
 
 ## Implemented / estimated / future
 
