@@ -76,7 +76,10 @@ def select(candidates, objective, reference=None):
     return min(pool,key=lambda p:rank_key(p,objective)),guardrail
 
 def solve(s, objective='contribution'):
-    from .baseline import fifo, earliest_expiry
+    try:
+        from .baseline import fifo, earliest_expiry
+    except ImportError:  # Vercel imports this module outside the backend package.
+        from baseline import fifo, earliest_expiry
     rows,rejected=edges(s)
     baseline=fifo(s,rows)
     expiry_baseline=earliest_expiry(s,rows)
